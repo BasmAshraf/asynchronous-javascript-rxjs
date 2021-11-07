@@ -1,0 +1,37 @@
+- Async programming in JS problems:
+	- Race Conditions (When we have 2 concurrent processes and I can't control which will complete first)
+	- Memory Leaks (When we hook handlers and forget to unsubscribe this can lead to memory leaks)
+	- Error Handling (It is difficult to handle erros in async code and will lead to messy and unreadable code)
+	- Complex state machines
+- Array operators
+	- forEach() >> apply function to each item in array
+	- map() >> transform each item in array and return a new array
+	- filter() >> apply test function to each item in array and if it passes, will add it to new array
+	- concatAll() >> flatten 2 dimensional array to be one dimension
+- What's difference between event and array? Both of them are collections
+- What's the difference between the iterator and ovserver?
+	- Iterator: Consumer pulls data from the producer and the producer replies to it with Done(no more data) or throws error (consumer controls)
+	- Observer: Producer pushes data to the consumer (call back function) and there is no way to know if errors occur ot there is no data (producer controls)
+- Push APIs: DOM Events, Websockets, Server-sent Events, Node Streams, Service Workers, Jquery, XMLHttpRequests, SetInterval	
+- Observable is a collection arrives over time
+- Observable can model events, async requests, animations by using reactive extentions
+- We can adapt any push api to observable
+- Observable.forEach(observer)
+- ConcatAll() >>(1st flattening strategy) just like an array take arrays values just in the order so it wworks in each stream on order and till its end, we may not use concatAll() over infinite stream.
+- TakeUntil() >> source observable emits data until stop observable arrives
+- MergeAll() >>(2nd flattening strategy) works on group of streams first come first server
+- SwitchLatest() >>(3rd flattening strategy) listens on inner observable till outer one arrives then switch to it and unsubscribe from the previous one.
+- Take() >> An observable based on an event will never complete on its own. The take() function creates a new sequence that completes after a discrete number of items arrive.
+			If we use take to complete an event sequence, we don't need to unsubscribe.
+- Reduce() >> accepts function that takes two arguments, anytime you need to compare something
+- Zip() >> iterates over several arrays at a time, good when the order of processing arrays is not important (opposite to Array.map)
+- forEach() is used to traverse observables.
+- fromEvent() is used to convert event to an observable.
+- Querying observables:
+	- Difference between traversing an array and traversing an observable is the direction in which the data moves
+	- When traversing an array, the client pulls data from the data source blocking until it gets a result.
+	- When traversing an observable, the data source pushes data to the client whenever it arrives
+- Observable vs. Promise
+	- Observable is lazy, Promise is eager
+	- Observable is richer type, you can cancel and retry
+- Observable is just an object with forEach function waiting to be called and when that forEach function is called, it is actually gone do whatever work it has to do.
